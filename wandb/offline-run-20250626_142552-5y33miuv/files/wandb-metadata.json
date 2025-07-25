@@ -1,0 +1,226 @@
+{
+    "os": "Linux-4.18.0-425.19.2.el8_7.x86_64-x86_64-with-glibc2.28",
+    "python": "3.11.9",
+    "heartbeatAt": "2025-06-26T12:25:52.640725",
+    "startedAt": "2025-06-26T12:25:52.550168",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "model=rnndet",
+        "dataset=gen4",
+        "dataset.path=/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4",
+        "wandb.project_name=ssms_event_cameras",
+        "wandb.group_name=1mpx",
+        "+experiment/gen4=small.yaml",
+        "hardware.gpus=[0,1,2,3]",
+        "batch_size.train=2",
+        "batch_size.eval=2",
+        "hardware.num_workers.train=5",
+        "hardware.num_workers.eval=2"
+    ],
+    "state": "running",
+    "program": "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/train.py",
+    "codePathLocal": "RVT/train.py",
+    "codePath": "RVT/train.py",
+    "host": "lrdn1401.leonardo.local",
+    "username": "ychen004",
+    "executable": "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 2647.85290625,
+        "min": 800.0,
+        "max": 2601.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 3326.739,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        },
+        {
+            "current": 2601.0,
+            "min": 800.0,
+            "max": 2601.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 8.830253601074219,
+            "used": 7.741939544677734
+        }
+    },
+    "gpu": "NVIDIA A100-SXM-64GB",
+    "gpu_count": 4,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A100-SXM-64GB",
+            "memory_total": 68719476736
+        },
+        {
+            "name": "NVIDIA A100-SXM-64GB",
+            "memory_total": 68719476736
+        },
+        {
+            "name": "NVIDIA A100-SXM-64GB",
+            "memory_total": 68719476736
+        },
+        {
+            "name": "NVIDIA A100-SXM-64GB",
+            "memory_total": 68719476736
+        }
+    ],
+    "memory": {
+        "total": 502.9157066345215
+    }
+}

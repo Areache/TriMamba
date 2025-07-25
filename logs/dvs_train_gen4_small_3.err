@@ -1,0 +1,458 @@
+Initializing distributed: GLOBAL_RANK: 2, MEMBER: 3/4
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/4
+Initializing distributed: GLOBAL_RANK: 3, MEMBER: 4/4
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id nu0t4ndp.
+wandb: Tracking run with wandb version 0.16.6
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: logging graph, to disable use `wandb.watch(log_graph=False)`
+Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.model_summary.ModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+`Trainer(limit_train_batches=1.0)` was configured so 100% of the batches per epoch will be used..
+`Trainer(limit_val_batches=1.0)` was configured so 100% of the batches will be used..
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/4
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 4 processes
+----------------------------------------------------------------------------------------------------
+
+creating rnd access train datasets: 0it [00:00, ?it/s]creating rnd access train datasets: 1it [00:00,  1.95it/s]creating rnd access train datasets: 2it [00:01,  1.55it/s]creating rnd access train datasets: 18it [00:01, 19.65it/s]creating rnd access train datasets: 35it [00:01, 40.41it/s]creating rnd access train datasets: 51it [00:01, 60.13it/s]creating rnd access train datasets: 67it [00:01, 78.96it/s]creating rnd access train datasets: 84it [00:01, 97.18it/s]creating rnd access train datasets: 102it [00:01, 115.11it/s]creating rnd access train datasets: 120it [00:01, 129.09it/s]creating rnd access train datasets: 137it [00:02, 138.57it/s]creating rnd access train datasets: 154it [00:02, 146.06it/s]creating rnd access train datasets: 171it [00:02, 151.99it/s]creating rnd access train datasets: 189it [00:02, 158.29it/s]creating rnd access train datasets: 207it [00:02, 163.95it/s]creating rnd access train datasets: 225it [00:02, 165.26it/s]creating rnd access train datasets: 242it [00:02, 165.creating rnd access train datasets: 0it [00:00, ?it/s]creating rnd access train datasets: 1it [00:00,  1.95it/s]creating rnd access train datasets: 2it [00:01,  1.55it/s]creating rnd access train datasets: 18it [00:01, 19.65it/s]creating rnd access train datasets: 35it [00:01, 40.41it/s]creating rnd access train datasets: 51it [00:01, 60.15it/s]creating rnd access train datasets: 67it [00:01, 78.95it/s]creating rnd access train datasets: 84it [00:01, 97.18it/s]creating rnd access train datasets: 102it [00:01, 115.18it/s]creating rnd access train datasets: 118it [00:02, 96.09it/s] creating rnd access train datasets: 156it [00:02, 155.84it/s]creating rnd access train datasets: 177it [00:02, 162.07it/s]creating rnd access train datasets: 197it [00:02, 163.87it/s]creating rnd access train datasets: 216it [00:02, 167.20it/s]creating rnd access train datasets: 235it [00:02, 167.01it/s]creating rnd access train datasets: 253it [00:02, 167.69it/s]creating rnd access train datasets: 271it [00:02, 165.creating rnd access train datasets: 0it [00:00, ?it/s]creating rnd access train datasets: 1it [00:00,  1.95it/s]creating rnd access train datasets: 2it [00:01,  1.55it/s]creating rnd access train datasets: 18it [00:01, 19.65it/s]creating rnd access train datasets: 35it [00:01, 40.41it/s]creating rnd access train datasets: 51it [00:01, 60.15it/s]creating rnd access train datasets: 67it [00:01, 78.95it/s]creating rnd access train datasets: 84it [00:01, 97.17it/s]creating rnd access train datasets: 102it [00:01, 115.18it/s]creating rnd access train datasets: 118it [00:02, 97.02it/s] creating rnd access train datasets: 156it [00:02, 156.70it/s]creating rnd access train datasets: 177it [00:02, 161.25it/s]creating rnd access train datasets: 197it [00:02, 163.26it/s]creating rnd access train datasets: 216it [00:02, 166.83it/s]creating rnd access train datasets: 235it [00:02, 166.56it/s]creating rnd access train datasets: 253it [00:02, 167.57it/s]creating rnd access train datasets: 271it [00:02, 165.creating rnd access train datasets: 0it [00:00, ?it/s]creating rnd access train datasets: 1it [00:00,  1.95it/s]creating rnd access train datasets: 2it [00:01,  1.55it/s]creating rnd access train datasets: 18it [00:01, 19.64it/s]creating rnd access train datasets: 35it [00:01, 40.40it/s]creating rnd access train datasets: 51it [00:01, 60.16it/s]creating rnd access train datasets: 67it [00:01, 78.92it/s]creating rnd access train datasets: 84it [00:01, 97.15it/s]creating rnd access train datasets: 102it [00:01, 115.22it/s]creating rnd access train datasets: 118it [00:02, 97.26it/s] creating rnd access train datasets: 156it [00:02, 156.61it/s]creating rnd access train datasets: 177it [00:02, 161.09it/s]creating rnd access train datasets: 197it [00:02, 163.15it/s]creating rnd access train datasets: 216it [00:02, 166.84it/s]creating rnd access train datasets: 235it [00:02, 166.66it/s]creating rnd access train datasets: 253it [00:02, 167.54it/s]creating rnd access train datasets: 271it [00:02, 165.92it/s]creating rnd access train datasets: 260it [00:02, 168.06it/s]creating rnd access train datasets: 278it [00:02, 166.47it/s]creating rnd access train datasets: 296it [00:03, 169.64it/s]creating rnd access train datasets: 314it [00:03, 170.29it/s]creating rnd access train datasets: 332it [00:03, 172.26it/s]creating rnd access train datasets: 350it [00:03, 172.35it/s]creating rnd access train datasets: 368it [00:03, 173.57it/s]creating rnd access train datasets: 386it [00:03, 171.77it/s]creating rnd access train datasets: 404it [00:03, 171.93it/s]creating rnd access train datasets: 422it [00:03, 174.25it/s]creating rnd access train datasets: 440it [00:03, 174.05it/s]creating rnd access train datasets: 458it [00:03, 173.20it/s]creating rnd access train datasets: 476it [00:04, 173.36it/s]creating rnd access train datasets: 494it [00:04, 174.21it/s]creating rnd access train datasets: 512it [00:04, 164.91it/s]creating rnd access train datasets: 533it [00:04, 176.67it/s]creating rnd access trai38it/s]creating rnd access train datasets: 289it [00:02, 169.29it/s]creating rnd access train datasets: 307it [00:03, 171.78it/s]creating rnd access train datasets: 325it [00:03, 172.30it/s]creating rnd access train datasets: 343it [00:03, 171.98it/s]creating rnd access train datasets: 361it [00:03, 173.60it/s]creating rnd access train datasets: 379it [00:03, 171.39it/s]creating rnd access train datasets: 397it [00:03, 171.01it/s]creating rnd access train datasets: 415it [00:03, 173.31it/s]creating rnd access train datasets: 433it [00:03, 174.94it/s]creating rnd access train datasets: 451it [00:03, 173.89it/s]creating rnd access train datasets: 469it [00:04, 173.35it/s]creating rnd access train datasets: 487it [00:04, 175.26it/s]creating rnd access train datasets: 505it [00:04, 174.98it/s]creating rnd access train datasets: 523it [00:04, 172.53it/s]creating rnd access train datasets: 541it [00:04, 173.34it/s]creating rnd access train datasets: 559it [00:04, 167.50it/s]creating rnd access trai71it/s]creating rnd access train datasets: 289it [00:02, 169.30it/s]creating rnd access train datasets: 307it [00:03, 171.91it/s]creating rnd access train datasets: 325it [00:03, 172.50it/s]creating rnd access train datasets: 343it [00:03, 172.00it/s]creating rnd access train datasets: 361it [00:03, 173.76it/s]creating rnd access train datasets: 379it [00:03, 171.36it/s]creating rnd access train datasets: 397it [00:03, 170.99it/s]creating rnd access train datasets: 415it [00:03, 173.30it/s]creating rnd access train datasets: 433it [00:03, 175.04it/s]creating rnd access train datasets: 451it [00:03, 173.86it/s]creating rnd access train datasets: 469it [00:04, 173.30it/s]creating rnd access train datasets: 487it [00:04, 175.11it/s]creating rnd access train datasets: 505it [00:04, 175.01it/s]creating rnd access train datasets: 523it [00:04, 172.56it/s]creating rnd access train datasets: 541it [00:04, 173.36it/s]creating rnd access train datasets: 559it [00:04, 167.51it/s]creating rnd access trai52it/s]creating rnd access train datasets: 289it [00:02, 169.25it/s]creating rnd access train datasets: 307it [00:03, 171.66it/s]creating rnd access train datasets: 325it [00:03, 172.43it/s]creating rnd access train datasets: 343it [00:03, 171.83it/s]creating rnd access train datasets: 361it [00:03, 173.78it/s]creating rnd access train datasets: 379it [00:03, 171.26it/s]creating rnd access train datasets: 397it [00:03, 171.02it/s]creating rnd access train datasets: 415it [00:03, 173.33it/s]creating rnd access train datasets: 433it [00:03, 175.05it/s]creating rnd access train datasets: 451it [00:03, 173.87it/s]creating rnd access train datasets: 469it [00:04, 172.88it/s]creating rnd access train datasets: 488it [00:04, 175.58it/s]creating rnd access train datasets: 506it [00:04, 174.82it/s]creating rnd access train datasets: 524it [00:04, 173.03it/s]creating rnd access train datasets: 542it [00:04, 172.89it/s]creating rnd access train datasets: 560it [00:04, 167.00it/s]creating rnd access train datasets: 577it [00:04, 167.06it/s]creating rnd access train datasets: 595it [00:04, 168.43it/s]creating rnd access train datasets: 614it [00:04, 172.11it/s]creating rnd access train datasets: 632it [00:04, 170.28it/s]creating rnd access train datasets: 650it [00:05, 172.74it/s]creating rnd access train datasets: 668it [00:05, 170.32it/s]creating rnd access train datasets: 681it [00:05, 129.49it/s]
+n datasets: 576it [00:04, 167.02it/s]creating rnd access train datasets: 594it [00:04, 167.98it/s]creating rnd access train datasets: 613it [00:04, 172.03it/s]creating rnd access train datasets: 631it [00:04, 170.12it/s]creating rnd access train datasets: 649it [00:05, 172.28it/s]creating rnd access train datasets: 667it [00:05, 170.19it/s]creating rnd access train datasets: 681it [00:05, 129.49it/s]
+n datasets: 551it [00:04, 173.22it/s]creating rnd access train datasets: 569it [00:04, 169.58it/s]creating rnd access train datasets: 587it [00:04, 168.32it/s]creating rnd access train datasets: 605it [00:04, 171.21it/s]creating rnd access train datasets: 623it [00:04, 170.76it/s]creating rnd access train datasets: 641it [00:05, 171.00it/s]creating rnd access train datasets: 659it [00:05, 173.27it/s]creating rnd access train datasets: 677it [00:05, 170.44it/s]creating rnd access train datasets: 681it [00:05, 129.49it/s]
+n datasets: 576it [00:04, 166.92it/s]creating rnd access train datasets: 594it [00:04, 168.11it/s]creating rnd access train datasets: 613it [00:04, 172.02it/s]creating rnd access train datasets: 631it [00:04, 170.12it/s]creating rnd access train datasets: 649it [00:05, 172.08it/s]creating rnd access train datasets: 667it [00:05, 170.25it/s]creating rnd access train datasets: 681it [00:05, 129.48it/s]
+creating streaming train datasets: 0it [00:00, ?it/s]creating streaming train datasets: 17it [00:00, 153.37it/s]creating streaming train datasets: 33it [00:00, 156.83it/s]creating streaming train datasets: 50it [00:00, 162.35it/s]creating streaming train datasets: 69it [00:00, 165.93it/s]creating streaming train datasets: 92it [00:00, 187.52it/s]creating streaming train datasets: 111it [00:00, 179.70it/s]creating streaming train datasets: 132it [00:00, 188.34it/s]creating streaming train datasets: 151it [00:00, 167.77it/s]creating streaming train datasets: 174it [00:00, 184.85it/s]creating streaming train datasets: 197it [00:01, 195.88it/s]creating streaming train datasets: 218it [00:01, 195.53it/s]creating streaming train datasets: 242it [00:01, 207.65it/s]creating streaming train datasets: 264it [00:01, 203.38it/s]creating streaming train datasets: 286it [00:01, 203.68it/s]creating streaming train datasets: 307it [00:01, 183.82it/s]creating streaming train datasets: 326it [00:01, 184.22it/screating streaming train datasets: 0it [00:00, ?it/s]creating streaming train datasets: 17it [00:00, 153.33it/s]creating streaming train datasets: 33it [00:00, 156.91it/s]creating streaming train datasets: 50it [00:00, 162.52it/s]creating streaming train datasets: 69it [00:00, 166.22it/s]creating streaming train datasets: 92it [00:00, 187.75it/s]creating streaming train datasets: 111it [00:00, 179.56it/s]creating streaming train datasets: 132it [00:00, 188.23it/s]creating streaming train datasets: 151it [00:00, 170.10it/s]creating streaming train datasets: 174it [00:00, 184.65it/s]creating streaming train datasets: 198it [00:01, 194.85it/s]creating streaming train datasets: 222it [00:01, 200.67it/s]creating streaming train datasets: 249it [00:01, 219.55it/s]creating streaming train datasets: 272it [00:01, 206.05it/s]creating streaming train datasets: 293it [00:01, 200.29it/s]creating streaming train datasets: 314it [00:01, 186.41it/s]creating streaming train datasets: 336it [00:01, 194.30it/screating streaming train datasets: 0it [00:00, ?it/s]creating streaming train datasets: 17it [00:00, 153.75it/s]creating streaming train datasets: 33it [00:00, 156.93it/s]creating streaming train datasets: 50it [00:00, 162.62it/s]creating streaming train datasets: 69it [00:00, 166.05it/s]creating streaming train datasets: 92it [00:00, 187.68it/s]creating streaming train datasets: 111it [00:00, 179.66it/s]creating streaming train datasets: 132it [00:00, 188.32it/s]creating streaming train datasets: 151it [00:00, 169.44it/s]creating streaming train datasets: 174it [00:00, 184.71it/s]creating streaming train datasets: 198it [00:01, 195.33it/s]creating streaming train datasets: 222it [00:01, 200.68it/s]creating streaming train datasets: 249it [00:01, 219.62it/s]creating streaming train datasets: 272it [00:01, 206.20it/s]creating streaming train datasets: 293it [00:01, 200.12it/s]creating streaming train datasets: 314it [00:01, 186.41it/s]creating streaming train datasets: 336it [00:01, 194.40it/screating streaming train datasets: 0it [00:00, ?it/s]creating streaming train datasets: 17it [00:00, 152.98it/s]creating streaming train datasets: 33it [00:00, 156.91it/s]creating streaming train datasets: 50it [00:00, 162.53it/s]creating streaming train datasets: 69it [00:00, 166.09it/s]creating streaming train datasets: 92it [00:00, 187.79it/s]creating streaming train datasets: 111it [00:00, 179.51it/s]creating streaming train datasets: 132it [00:00, 188.22it/s]creating streaming train datasets: 151it [00:00, 169.88it/s]creating streaming train datasets: 174it [00:00, 184.67it/s]creating streaming train datasets: 198it [00:01, 195.08it/s]creating streaming train datasets: 222it [00:01, 200.65it/s]creating streaming train datasets: 249it [00:01, 219.62it/s]creating streaming train datasets: 272it [00:01, 206.14it/s]creating streaming train datasets: 293it [00:01, 200.20it/s]creating streaming train datasets: 314it [00:01, 186.49it/s]creating streaming train datasets: 336it [00:01, 194.25it/s]creating streaming train datasets: 356it [00:01, 175.74it/s]creating streaming train datasets: 379it [00:02, 189.79it/s]creating streaming train datasets: 399it [00:02, 177.47it/s]creating streaming train datasets: 418it [00:02, 177.09it/s]creating streaming train datasets: 437it [00:02, 175.91it/s]creating streaming train datasets: 455it [00:02, 175.88it/s]creating streaming train datasets: 473it [00:02, 172.84it/s]creating streaming train datasets: 491it [00:02, 174.36it/s]creating streaming train datasets: 510it [00:02, 178.04it/s]creating streaming train datasets: 530it [00:02, 178.10it/s]creating streaming train datasets: 548it [00:03, 172.24it/s]creating streaming train datasets: 568it [00:03, 178.53it/s]creating streaming train datasets: 586it [00:03, 166.35it/s]creating streaming train datasets: 603it [00:03, 163.21it/s]creating streaming train datasets: 622it [00:03, 169.99it/s]creating streaming train datasets: 642it [00:03, 175.64it/s]creating streaming train datasets: 664it [00:0]creating streaming train datasets: 345it [00:01, 152.45it/s]creating streaming train datasets: 365it [00:02, 163.68it/s]creating streaming train datasets: 384it [00:02, 169.32it/s]creating streaming train datasets: 402it [00:02, 164.52it/s]creating streaming train datasets: 419it [00:02, 165.21it/s]creating streaming train datasets: 436it [00:02, 166.52it/s]creating streaming train datasets: 454it [00:02, 169.94it/s]creating streaming train datasets: 472it [00:02, 166.05it/s]creating streaming train datasets: 489it [00:02, 166.79it/s]creating streaming train datasets: 507it [00:02, 168.85it/s]creating streaming train datasets: 525it [00:02, 170.41it/s]creating streaming train datasets: 543it [00:03, 161.07it/s]creating streaming train datasets: 560it [00:03, 157.82it/s]creating streaming train datasets: 576it [00:03, 147.68it/s]creating streaming train datasets: 594it [00:03, 155.97it/s]creating streaming train datasets: 614it [00:03, 158.56it/s]creating streaming train datasets: 637it [00:0]creating streaming train datasets: 356it [00:01, 174.93it/s]creating streaming train datasets: 380it [00:02, 191.06it/s]creating streaming train datasets: 400it [00:02, 175.05it/s]creating streaming train datasets: 419it [00:02, 177.26it/s]creating streaming train datasets: 438it [00:02, 175.16it/s]creating streaming train datasets: 457it [00:02, 178.28it/s]creating streaming train datasets: 476it [00:02, 175.82it/s]creating streaming train datasets: 494it [00:02, 174.96it/s]creating streaming train datasets: 514it [00:02, 180.60it/s]creating streaming train datasets: 533it [00:02, 172.13it/s]creating streaming train datasets: 552it [00:03, 176.42it/s]creating streaming train datasets: 570it [00:03, 171.08it/s]creating streaming train datasets: 588it [00:03, 162.17it/s]creating streaming train datasets: 610it [00:03, 173.16it/s]creating streaming train datasets: 630it [00:03, 179.70it/s]creating streaming train datasets: 651it [00:03, 187.12it/s]creating streaming train datasets: 671it [00:0]creating streaming train datasets: 356it [00:01, 175.63it/s]creating streaming train datasets: 380it [00:02, 190.84it/s]creating streaming train datasets: 400it [00:02, 175.00it/s]creating streaming train datasets: 419it [00:02, 176.44it/s]creating streaming train datasets: 438it [00:02, 175.23it/s]creating streaming train datasets: 457it [00:02, 178.39it/s]creating streaming train datasets: 476it [00:02, 175.81it/s]creating streaming train datasets: 494it [00:02, 176.33it/s]creating streaming train datasets: 513it [00:02, 179.77it/s]creating streaming train datasets: 532it [00:02, 170.90it/s]creating streaming train datasets: 551it [00:03, 175.59it/s]creating streaming train datasets: 570it [00:03, 172.06it/s]creating streaming train datasets: 588it [00:03, 162.97it/s]creating streaming train datasets: 610it [00:03, 174.23it/s]creating streaming train datasets: 630it [00:03, 179.44it/s]creating streaming train datasets: 651it [00:03, 186.73it/s]creating streaming train datasets: 671it [00:03, 189.24it/s]creating streaming train datasets: 681it [00:03, 182.03it/s]
+3, 189.60it/s]creating streaming train datasets: 681it [00:03, 182.00it/s]
+3, 188.03it/s]creating streaming train datasets: 681it [00:03, 180.82it/s]
+3, 177.88it/s]creating streaming train datasets: 659it [00:03, 188.68it/s]creating streaming train datasets: 679it [00:03, 185.50it/s]creating streaming train datasets: 681it [00:03, 173.61it/s]
+creating streaming val datasets: 0it [00:00, ?it/s]creating streaming val datasets: 20it [00:00, 195.36it/s]creating streaming val datasets: 40it [00:00, 171.33it/s]creating streaming val datasets: 58it [00:00, 165.89it/s]creating streaming val datasets: 75it [00:00, 163.00it/s]creating streaming val datasets: 92it [00:00, 160.50it/s]creating streaming val datasets: 109it [00:00, 153.75it/s]creating streaming val datasets: 125it [00:00, 155.59it/s]creating streaming val datasets: 128it [00:00, 160.00it/s]
+creating streaming val datasets: 0it [00:00, ?it/s]creating streaming val datasets: 16it [00:00, 156.51it/s]creating streaming val datasets: 32it [00:00, 157.47it/s]creating streaming val datasets: 49it [00:00, 160.57it/s]creating streaming val datasets: 66it [00:00, 158.62it/s]creating streaming val datasets: 82it [00:00, 158.69it/s]creating streaming val datasets: 98it [00:00, 154.24it/s]creating streaming val datasets: 114it [00:00, 152.66it/s]creating streaming val datasets: 128it [00:00, 155.26it/s]
+creating streaming val datasets: 0it [00:00, ?it/s]creating streaming val datasets: 34it [00:00, 333.99it/s]creating streaming val datasets: 68it [00:00, 264.57it/s]creating streaming val datasets: 96it [00:00, 203.40it/s]creating streaming val datasets: 118it [00:00, 184.04it/s]creating streaming val datasets: 128it [00:00, 198.78it/s]
+creating streaming val datasets: 0it [00:00, ?it/s]creating streaming val datasets: 16it [00:00, 156.79it/s]creating streaming val datasets: 32it [00:00, 157.49it/s]creating streaming val datasets: 49it [00:00, 160.58it/s]creating streaming val datasets: 66it [00:00, 158.64it/s]creating streaming val datasets: 82it [00:00, 158.69it/s]creating streaming val datasets: 98it [00:00, 154.24it/s]creating streaming val datasets: 114it [00:00, 152.66it/s]creating streaming val datasets: 128it [00:00, 155.23it/s]
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/callbacks/model_checkpoint.py:654: Checkpoint directory /leonardo/home/userexternal/ychen004/ssm-event-gen4/ssms_event_cameras/nu0t4ndp/checkpoints exists and is not empty.
+Restoring states from the checkpoint path at /leonardo/home/userexternal/ychen004/ssm-event-gen4/ssms_event_cameras/nu0t4ndp/checkpoints/epoch=000-step=220000-val_AP=0.38.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+
+  | Name           | Type          | Params | Mode 
+---------------------------------------------------------
+0 | mdl            | YoloXDetector | 13.3 M | train
+1 | mdl.backbone   | RNNDetector   | 10.7 M | train
+2 | mdl.fpn        | YOLOPAFPN     | 1.6 M  | train
+3 | mdl.yolox_head | YOLOXHead     | 1.1 M  | train
+---------------------------------------------------------
+13.3 M    Trainable params
+0         Non-trainable params
+13.3 M    Total params
+53.291    Total estimated model params size (MB)
+441       Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at /leonardo/home/userexternal/ychen004/ssm-event-gen4/ssms_event_cameras/nu0t4ndp/checkpoints/epoch=000-step=220000-val_AP=0.38.ckpt
+SLURM auto-requeueing enabled. Setting signal handlers.
+SLURM auto-requeueing enabled. Setting signal handlers.
+SLURM auto-requeueing enabled. Setting signal handlers.
+SLURM auto-requeueing enabled. Setting signal handlers.
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/autograd/__init__.py:266: UserWarning:
+
+Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 96, 1, 1], strides() = [96, 1, 96, 96]
+bucket_view.sizes() = [1, 96, 1, 1], strides() = [96, 1, 1, 1] (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/reducer.cpp:322.)
+
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/autograd/__init__.py:266: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 96, 1, 1], strides() = [96, 1, 96, 96]
+bucket_view.sizes() = [1, 96, 1, 1], strides() = [96, 1, 1, 1] (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/reducer.cpp:322.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/autograd/__init__.py:266: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 96, 1, 1], strides() = [96, 1, 96, 96]
+bucket_view.sizes() = [1, 96, 1, 1], strides() = [96, 1, 1, 1] (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/reducer.cpp:322.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/autograd/__init__.py:266: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 96, 1, 1], strides() = [96, 1, 96, 96]
+bucket_view.sizes() = [1, 96, 1, 1], strides() = [96, 1, 1, 1] (Triggered internally at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/reducer.cpp:322.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 0, global step 230000: 'val/AP' reached 0.38597 (best 0.38597), saving model to '/leonardo/home/userexternal/ychen004/ssm-event-gen4/ssms_event_cameras/nu0t4ndp/checkpoints/epoch=000-step=230000-val_AP=0.39.ckpt' as top 1
+Epoch 0, global step 240000: 'val/AP' was not in top 1
+Epoch 0, global step 250000: 'val/AP' reached 0.39062 (best 0.39062), saving model to '/leonardo/home/userexternal/ychen004/ssm-event-gen4/ssms_event_cameras/nu0t4ndp/checkpoints/epoch=000-step=250000-val_AP=0.39.ckpt' as top 1
+Epoch 0, global step 260000: 'val/AP' was not in top 1
+Epoch 0, global step 270000: 'val/AP' was not in top 1
+Epoch 0, global step 280000: 'val/AP' reached 0.39064 (best 0.39064), saving model to '/leonardo/home/userexternal/ychen004/ssm-event-gen4/ssms_event_cameras/nu0t4ndp/checkpoints/epoch=000-step=280000-val_AP=0.39.ckpt' as top 1
+Epoch 0, global step 290000: 'val/AP' was not in top 1
+Error executing job with overrides: ['model=rnndet', 'dataset=gen4', 'dataset.path=/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4', 'wandb.project_name=ssms_event_cameras', 'wandb.group_name=1mpx', '+experiment/gen4=small.yaml', 'hardware.gpus=[0,1,2,3]', 'batch_size.train=2', 'batch_size.eval=2', 'hardware.num_workers.train=5', 'hardware.num_workers.eval=2']
+Error executing job with overrides: ['model=rnndet', 'dataset=gen4', 'dataset.path=/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4', 'wandb.project_name=ssms_event_cameras', 'wandb.group_name=1mpx', '+experiment/gen4=small.yaml', 'hardware.gpus=[0,1,2,3]', 'batch_size.train=2', 'batch_size.eval=2', 'hardware.num_workers.train=5', 'hardware.num_workers.eval=2']
+Error executing job with overrides: ['model=rnndet', 'dataset=gen4', 'dataset.path=/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4', 'wandb.project_name=ssms_event_cameras', 'wandb.group_name=1mpx', '+experiment/gen4=small.yaml', 'hardware.gpus=[0,1,2,3]', 'batch_size.train=2', 'batch_size.eval=2', 'hardware.num_workers.train=5', 'hardware.num_workers.eval=2']
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/train.py", line 173, in main
+    trainer.fit(model=module, ckpt_path=ckpt_path, datamodule=data_module)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 561, in fit
+    call._call_and_handle_interrupt(
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 599, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 1012, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 1056, in _run_stage
+    self.fit_loop.run()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py", line 216, in run
+    self.advance()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py", line 455, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 150, in run
+    self.advance(data_fetcher)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 282, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fetchers.py", line 128, in __next__
+    self.batches.append(super().__next__())
+                        ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/_utils.py", line 722, in reraise
+    raise exception
+PermissionError: Caught PermissionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 335, in __getitem__
+    return self.datasets[dataset_idx][sample_idx]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/dataset_rnd.py", line 75, in __getitem__
+    item = self.sequence[index]
+           ~~~~~~~~~~~~~^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/sequence_rnd.py", line 69, in __getitem__
+    ev_repr = self._get_event_repr_torch(start_idx=start_idx, end_idx=end_idx)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/sequence_base.py", line 105, in _get_event_repr_torch
+    with h5py.File(str(self.ev_repr_file), "r") as h5f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/h5py/_hl/files.py", line 564, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/h5py/_hl/files.py", line 238, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 56, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 57, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+PermissionError: [Errno 13] Unable to synchronously open file (unable to open file: name = '/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4/train/moorea_2019-06-26_test_02_000_671500000_731500000/event_representations_v2/stacked_histogram_dt=50_nbins=10/event_representations_ds2_nearest.h5', errno = 13, error message = 'Permission denied', flags = 0, o_flags = 0)
+
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/train.py", line 173, in main
+    trainer.fit(model=module, ckpt_path=ckpt_path, datamodule=data_module)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 561, in fit
+    call._call_and_handle_interrupt(
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 599, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 1012, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 1056, in _run_stage
+    self.fit_loop.run()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py", line 216, in run
+    self.advance()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py", line 455, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 150, in run
+    self.advance(data_fetcher)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 282, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fetchers.py", line 128, in __next__
+    self.batches.append(super().__next__())
+                        ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/_utils.py", line 722, in reraise
+    raise exception
+PermissionError: Caught PermissionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 335, in __getitem__
+    return self.datasets[dataset_idx][sample_idx]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/dataset_rnd.py", line 75, in __getitem__
+    item = self.sequence[index]
+           ~~~~~~~~~~~~~^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/sequence_rnd.py", line 69, in __getitem__
+    ev_repr = self._get_event_repr_torch(start_idx=start_idx, end_idx=end_idx)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/sequence_base.py", line 105, in _get_event_repr_torch
+    with h5py.File(str(self.ev_repr_file), "r") as h5f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/h5py/_hl/files.py", line 564, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/h5py/_hl/files.py", line 238, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 56, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 57, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+PermissionError: [Errno 13] Unable to synchronously open file (unable to open file: name = '/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4/train/moorea_2019-02-21_000_td_1708500000_1768500000/event_representations_v2/stacked_histogram_dt=50_nbins=10/event_representations_ds2_nearest.h5', errno = 13, error message = 'Permission denied', flags = 0, o_flags = 0)
+
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/train.py", line 173, in main
+    trainer.fit(model=module, ckpt_path=ckpt_path, datamodule=data_module)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 561, in fit
+    call._call_and_handle_interrupt(
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 599, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 1012, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 1056, in _run_stage
+    self.fit_loop.run()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py", line 216, in run
+    self.advance()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py", line 455, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 150, in run
+    self.advance(data_fetcher)
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 282, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fetchers.py", line 128, in __next__
+    self.batches.append(super().__next__())
+                        ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/_utils.py", line 722, in reraise
+    raise exception
+PermissionError: Caught PermissionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 335, in __getitem__
+    return self.datasets[dataset_idx][sample_idx]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/dataset_rnd.py", line 75, in __getitem__
+    item = self.sequence[index]
+           ~~~~~~~~~~~~~^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/sequence_rnd.py", line 69, in __getitem__
+    ev_repr = self._get_event_repr_torch(start_idx=start_idx, end_idx=end_idx)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/data/genx_utils/sequence_base.py", line 105, in _get_event_repr_torch
+    with h5py.File(str(self.ev_repr_file), "r") as h5f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/h5py/_hl/files.py", line 564, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/h5py/_hl/files.py", line 238, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 56, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 57, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+PermissionError: [Errno 13] Unable to synchronously open file (unable to open file: name = '/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4/train/moorea_2019-02-21_000_td_732500000_792500000/event_representations_v2/stacked_histogram_dt=50_nbins=10/event_representations_ds2_nearest.h5', errno = 13, error message = 'Permission denied', flags = 0, o_flags = 0)
+
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+wandb: 
+wandb: Run history:
+wandb:                epoch ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        learning_rate ████▇▇▇▇▇▆▆▆▆▆▆▅▅▅▅▅▅▄▄▄▄▄▃▃▃▃▃▂▂▂▂▂▂▁▁▁
+wandb:  train/cls_loss_step █▆▆▆▄▇▆▃▅▆█▅▃▃▁▄▇▆▆▆▅█▅▅▅▇▇▅▇▆█▄▃▄▅▂▄▅▆▄
+wandb: train/conf_loss_step ▆▅▄▆▃█▇▂▄▅▅▄▄▄▃▄▅▅▄▆▅▆▅▄▄▄▅▄▆▅▆▄▁▅▅▂▃▅▅▅
+wandb:  train/iou_loss_step █▇▅▆▄▇▅▃▆▇▆▅▃▃▁▄▆▅▆▆▅█▅▅▅▆▇▅▇▆█▄▂▅▅▂▄▅▆▅
+wandb:   train/l1_loss_step ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      train/loss_step ▇▆▅▆▄█▆▂▅▆▅▄▃▃▁▄▆▅▅▆▅▇▅▅▅▅▆▄▇▆▇▄▁▅▅▁▃▅▆▅
+wandb:    train/num_fg_step ▁▄▄▂▅▂▃▅▄▂▄▆▆▅█▄▃▄▃▃▄▁▄▅▄▄▁▂▃▃▁▅▇▃▄▇▄▃▂▃
+wandb:  trainer/global_step ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:               val/AP ▄▃█▅▁█▂
+wandb:            val/AP_50 █▂▅▃▁▆▄
+wandb:            val/AP_75 ▁▃█▆▂▇▁
+wandb:             val/AP_L █▅▇▆▁▆▆
+wandb:             val/AP_M ▄▄█▅▁█▁
+wandb:             val/AP_S ▆▁▆▆▅██
+wandb: 
+wandb: Run summary:
+wandb:                epoch 0
+wandb:        learning_rate 7e-05
+wandb:  train/cls_loss_step 0.43465
+wandb: train/conf_loss_step 0.73013
+wandb:  train/iou_loss_step 1.51723
+wandb:   train/l1_loss_step 0.0
+wandb:      train/loss_step 2.68201
+wandb:    train/num_fg_step 7.2172
+wandb:  trainer/global_step 293499
+wandb:               val/AP 0.38397
+wandb:            val/AP_50 0.66532
+wandb:            val/AP_75 0.38671
+wandb:             val/AP_L 0.469
+wandb:             val/AP_M 0.42548
+wandb:             val/AP_S 0.27662
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /leonardo/home/userexternal/ychen004/ssm-event-gen4/wandb/offline-run-20250628_133337-nu0t4ndp
+wandb: Find logs at: ./wandb/offline-run-20250628_133337-nu0t4ndp/logs
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 224999 is less than current step: 225000. Dropping entry: {'train/loss_step': 3.312014579772949, 'train/iou_loss_step': 1.8135573863983154, 'train/conf_loss_step': 0.9428755044937134, 'train/cls_loss_step': 0.5555814504623413, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 6.36909818649292, 'epoch': 0, 'trainer/global_step': 224999, '_timestamp': 1751115299.2423303}).
+wandb: WARNING (User provided step: 229999 is less than current step: 230000. Dropping entry: {'train/loss_step': 2.6896262168884277, 'train/iou_loss_step': 1.4725792407989502, 'train/conf_loss_step': 0.7442076802253723, 'train/cls_loss_step': 0.47283899784088135, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.237792015075684, 'epoch': 0, 'trainer/global_step': 229999, '_timestamp': 1751120168.8669894}).
+wandb: WARNING (User provided step: 229999 is less than current step: 230002. Dropping entry: {'val/AP': 0.38597160972847067, 'val/AP_50': 0.6735460628804097, 'val/AP_75': 0.3870051539371819, 'val/AP_S': 0.27482882054757474, 'val/AP_M': 0.43145216826048655, 'val/AP_L': 0.4733950048351746, 'epoch': 0, 'trainer/global_step': 229999, '_timestamp': 1751120713.8601105}).
+wandb: WARNING (User provided step: 230000 is less than current step: 230002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_230002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 230000, '_timestamp': 1751120715.515656}).
+wandb: WARNING (User provided step: 234999 is less than current step: 235000. Dropping entry: {'train/loss_step': 2.511561393737793, 'train/iou_loss_step': 1.3934434652328491, 'train/conf_loss_step': 0.7020390629768372, 'train/cls_loss_step': 0.416079044342041, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.47426176071167, 'epoch': 0, 'trainer/global_step': 234999, '_timestamp': 1751125614.4762511}).
+wandb: WARNING (User provided step: 239999 is less than current step: 240000. Dropping entry: {'train/loss_step': 2.2262630462646484, 'train/iou_loss_step': 1.2447903156280518, 'train/conf_loss_step': 0.5984013080596924, 'train/cls_loss_step': 0.38307133316993713, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.548199653625488, 'epoch': 0, 'trainer/global_step': 239999, '_timestamp': 1751130498.4471362}).
+wandb: WARNING (User provided step: 239999 is less than current step: 240002. Dropping entry: {'val/AP': 0.3841006251298638, 'val/AP_50': 0.6622488302110451, 'val/AP_75': 0.39038024760955825, 'val/AP_S': 0.2692678158578982, 'val/AP_M': 0.4302656575350285, 'val/AP_L': 0.46539206715737086, 'epoch': 0, 'trainer/global_step': 239999, '_timestamp': 1751131045.151638}).
+wandb: WARNING (User provided step: 240000 is less than current step: 240002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_240002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 240000, '_timestamp': 1751131046.2992089}).
+wandb: WARNING (User provided step: 244999 is less than current step: 245000. Dropping entry: {'train/loss_step': 2.6991126537323, 'train/iou_loss_step': 1.4084160327911377, 'train/conf_loss_step': 0.8717844486236572, 'train/cls_loss_step': 0.41891205310821533, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.223918914794922, 'epoch': 0, 'trainer/global_step': 244999, '_timestamp': 1751135908.8419778}).
+wandb: WARNING (User provided step: 249999 is less than current step: 250000. Dropping entry: {'train/loss_step': 2.907646656036377, 'train/iou_loss_step': 1.6339480876922607, 'train/conf_loss_step': 0.8092478513717651, 'train/cls_loss_step': 0.4644508361816406, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.299590587615967, 'epoch': 0, 'trainer/global_step': 249999, '_timestamp': 1751140746.2619154}).
+wandb: WARNING (User provided step: 249999 is less than current step: 250002. Dropping entry: {'val/AP': 0.39061589196910174, 'val/AP_50': 0.6665404503426072, 'val/AP_75': 0.3991603705419506, 'val/AP_S': 0.2749279638408036, 'val/AP_M': 0.43827064543571304, 'val/AP_L': 0.47182322275876226, 'epoch': 0, 'trainer/global_step': 249999, '_timestamp': 1751141290.3769407}).
+wandb: WARNING (User provided step: 250000 is less than current step: 250002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_250002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 250000, '_timestamp': 1751141291.9261127}).
+wandb: WARNING (User provided step: 254999 is less than current step: 255000. Dropping entry: {'train/loss_step': 3.1329946517944336, 'train/iou_loss_step': 1.5941321849822998, 'train/conf_loss_step': 1.0525312423706055, 'train/cls_loss_step': 0.4863312542438507, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.109880447387695, 'epoch': 0, 'trainer/global_step': 254999, '_timestamp': 1751146186.9466138}).
+wandb: WARNING (User provided step: 259999 is less than current step: 260000. Dropping entry: {'train/loss_step': 2.538043975830078, 'train/iou_loss_step': 1.4325857162475586, 'train/conf_loss_step': 0.672516405582428, 'train/cls_loss_step': 0.4329420030117035, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.632712364196777, 'epoch': 0, 'trainer/global_step': 259999, '_timestamp': 1751151070.781392}).
+wandb: WARNING (User provided step: 259999 is less than current step: 260002. Dropping entry: {'val/AP': 0.3872157618473418, 'val/AP_50': 0.6644316362361226, 'val/AP_75': 0.39630306897438594, 'val/AP_S': 0.27462904620053474, 'val/AP_M': 0.4323314423036893, 'val/AP_L': 0.46788166772710965, 'epoch': 0, 'trainer/global_step': 259999, '_timestamp': 1751151615.4750357}).
+wandb: WARNING (User provided step: 260000 is less than current step: 260002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_260002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 260000, '_timestamp': 1751151616.6699078}).
+wandb: WARNING (User provided step: 264999 is less than current step: 265000. Dropping entry: {'train/loss_step': 2.287029981613159, 'train/iou_loss_step': 1.322238802909851, 'train/conf_loss_step': 0.5585601329803467, 'train/cls_loss_step': 0.4062312841415405, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.4710307121276855, 'epoch': 0, 'trainer/global_step': 264999, '_timestamp': 1751156494.9432619}).
+wandb: WARNING (User provided step: 269999 is less than current step: 270000. Dropping entry: {'train/loss_step': 3.0967535972595215, 'train/iou_loss_step': 1.6315670013427734, 'train/conf_loss_step': 0.975801408290863, 'train/cls_loss_step': 0.48938506841659546, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.289842128753662, 'epoch': 0, 'trainer/global_step': 269999, '_timestamp': 1751161357.9760523}).
+wandb: WARNING (User provided step: 269999 is less than current step: 270002. Dropping entry: {'val/AP': 0.38227567341312857, 'val/AP_50': 0.659444350798092, 'val/AP_75': 0.3876224291154992, 'val/AP_S': 0.27395164575347625, 'val/AP_M': 0.42521031486945277, 'val/AP_L': 0.4571896340503624, 'epoch': 0, 'trainer/global_step': 269999, '_timestamp': 1751161905.4555333}).
+wandb: WARNING (User provided step: 270000 is less than current step: 270002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_270002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 270000, '_timestamp': 1751161906.7322335}).
+wandb: WARNING (User provided step: 274999 is less than current step: 275000. Dropping entry: {'train/loss_step': 2.246302604675293, 'train/iou_loss_step': 1.3340650796890259, 'train/conf_loss_step': 0.5098240375518799, 'train/cls_loss_step': 0.4024134576320648, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.746918678283691, 'epoch': 0, 'trainer/global_step': 274999, '_timestamp': 1751166752.672184}).
+wandb: WARNING (User provided step: 279999 is less than current step: 280000. Dropping entry: {'train/loss_step': 2.6375651359558105, 'train/iou_loss_step': 1.470553994178772, 'train/conf_loss_step': 0.7394798398017883, 'train/cls_loss_step': 0.427531361579895, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.087258338928223, 'epoch': 0, 'trainer/global_step': 279999, '_timestamp': 1751171643.844683}).
+wandb: WARNING (User provided step: 279999 is less than current step: 280002. Dropping entry: {'val/AP': 0.3906384016060126, 'val/AP_50': 0.6701142402904694, 'val/AP_75': 0.3976628353423965, 'val/AP_S': 0.2763335299480649, 'val/AP_M': 0.437960787963926, 'val/AP_L': 0.46841378945745765, 'epoch': 0, 'trainer/global_step': 279999, '_timestamp': 1751172192.6459742}).
+wandb: WARNING (User provided step: 280000 is less than current step: 280002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_280002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 280000, '_timestamp': 1751172194.2233357}).
+wandb: WARNING (User provided step: 284999 is less than current step: 285000. Dropping entry: {'train/loss_step': 2.5392303466796875, 'train/iou_loss_step': 1.4144301414489746, 'train/conf_loss_step': 0.6984484195709229, 'train/cls_loss_step': 0.4263518452644348, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.568235397338867, 'epoch': 0, 'trainer/global_step': 284999, '_timestamp': 1751177062.5439143}).
+wandb: WARNING (User provided step: 289999 is less than current step: 290000. Dropping entry: {'train/loss_step': 2.7346434593200684, 'train/iou_loss_step': 1.5389875173568726, 'train/conf_loss_step': 0.75038743019104, 'train/cls_loss_step': 0.4452684819698334, 'train/l1_loss_step': 0.0, 'train/num_fg_step': 7.300591468811035, 'epoch': 0, 'trainer/global_step': 289999, '_timestamp': 1751181926.968075}).
+wandb: WARNING (User provided step: 289999 is less than current step: 290002. Dropping entry: {'val/AP': 0.3839653427352871, 'val/AP_50': 0.6653186238272762, 'val/AP_75': 0.3867106284325306, 'val/AP_S': 0.27661650806693855, 'val/AP_M': 0.4254753490127487, 'val/AP_L': 0.4690022729305179, 'epoch': 0, 'trainer/global_step': 289999, '_timestamp': 1751182474.354191}).
+wandb: WARNING (User provided step: 290000 is less than current step: 290002. Dropping entry: {'train/gradients': {'_type': 'plotly-file', 'sha256': 'da13c3d16ed1e78630d9cb796f8c3b6f3fc2701cdbc6b9bf70338802a56f39d7', 'size': 7784, 'path': 'media/plotly/train/gradients_290002_da13c3d16ed1e78630d9.plotly.json'}, 'trainer/global_step': 290000, '_timestamp': 1751182475.736198}).
+srun: error: lrdn1444: task 2: Exited with exit code 1
+srun: error: lrdn1444: task 0: Exited with exit code 1
+srun: error: lrdn1444: task 1: Exited with exit code 1
+[rank3]:[E ProcessGroupNCCL.cpp:523] [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7073750, OpType=BROADCAST, NumelIn=9216, NumelOut=9216, Timeout(ms)=1800000) ran for 1800529 milliseconds before timing out.
+[rank3]:[E ProcessGroupNCCL.cpp:537] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank3]:[E ProcessGroupNCCL.cpp:543] To avoid data inconsistency, we are taking the entire process down.
+[rank3]:[E ProcessGroupNCCL.cpp:1182] [Rank 3] NCCL watchdog thread terminated with exception: [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7073750, OpType=BROADCAST, NumelIn=9216, NumelOut=9216, Timeout(ms)=1800000) ran for 1800529 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:525 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x57 (0x14701e365d87 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1e6 (0x14701f4fed26 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::workCleanupLoop() + 0x19d (0x14701f50227d in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x119 (0x14701f502e79 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd8198 (0x14707c0d1198 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x81ca (0x1470847d31ca in /lib64/libpthread.so.0)
+frame #6: clone + 0x43 (0x147083cb4e73 in /lib64/libc.so.6)
+
+terminate called after throwing an instance of 'c10::DistBackendError'
+  what():  [Rank 3] NCCL watchdog thread terminated with exception: [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7073750, OpType=BROADCAST, NumelIn=9216, NumelOut=9216, Timeout(ms)=1800000) ran for 1800529 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:525 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x57 (0x14701e365d87 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1e6 (0x14701f4fed26 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::workCleanupLoop() + 0x19d (0x14701f50227d in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x119 (0x14701f502e79 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd8198 (0x14707c0d1198 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x81ca (0x1470847d31ca in /lib64/libpthread.so.0)
+frame #6: clone + 0x43 (0x147083cb4e73 in /lib64/libc.so.6)
+
+Exception raised from ncclCommWatchdog at /opt/conda/conda-bld/pytorch_1708025842427/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1186 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x57 (0x14701e365d87 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0xdef733 (0x14701f259733 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: <unknown function> + 0xd8198 (0x14707c0d1198 in /leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #3: <unknown function> + 0x81ca (0x1470847d31ca in /lib64/libpthread.so.0)
+frame #4: clone + 0x43 (0x147083cb4e73 in /lib64/libc.so.6)
+
+srun: error: lrdn1444: task 3: Aborted

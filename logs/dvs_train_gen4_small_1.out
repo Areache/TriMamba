@@ -1,0 +1,917 @@
+Fri Jul 25 23:39:05 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.54.03              Driver Version: 535.54.03    CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM-64GB           On  | 00000000:1D:00.0 Off |                    0 |
+| N/A   43C    P0              60W / 463W |      2MiB / 65536MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM-64GB           On  | 00000000:56:00.0 Off |                    0 |
+| N/A   43C    P0              64W / 468W |      2MiB / 65536MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM-64GB           On  | 00000000:8F:00.0 Off |                    0 |
+| N/A   42C    P0              61W / 460W |      2MiB / 65536MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM-64GB           On  | 00000000:C8:00.0 Off |                    0 |
+| N/A   43C    P0              61W / 453W |      2MiB / 65536MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Using python-based detection evaluation
+Using python-based detection evaluation
+Using python-based detection evaluation
+Using python-based detection evaluation
+Set MaxViTRNN backbone (height, width) to (384, 640)
+Set partition sizes: (6, 10)
+Set num_classes=3 for detection head
+------ Configuration ------
+reproduce:
+  seed_everything: null
+  deterministic_flag: false
+  benchmark: false
+training:
+  precision: 32
+  max_epochs: 10000
+  max_steps: 400001
+  learning_rate: 0.0002449489742783178
+  weight_decay: 0
+  gradient_clip_val: 1.0
+  limit_train_batches: 1.0
+  lr_scheduler:
+    use: true
+    total_steps: ${..max_steps}
+    pct_start: 0.005
+    div_factor: 20
+    final_div_factor: 10000
+validation:
+  limit_val_batches: 1.0
+  val_check_interval: 10000
+  check_val_every_n_epoch: null
+batch_size:
+  train: 6
+  eval: 6
+hardware:
+  num_workers:
+    train: 3
+    eval: 1
+  gpus:
+  - 0
+  - 1
+  - 2
+  - 3
+  dist_backend: nccl
+logging:
+  ckpt_every_n_epochs: 1
+  train:
+    metrics:
+      compute: false
+      detection_metrics_every_n_steps: null
+    log_model_every_n_steps: 5000
+    log_every_n_steps: 500
+    high_dim:
+      enable: true
+      every_n_steps: 5000
+      n_samples: 4
+  validation:
+    high_dim:
+      enable: false
+      every_n_epochs: 1
+      n_samples: 8
+wandb:
+  wandb_runpath: null
+  artifact_name: null
+  artifact_local_file: null
+  resume_only_weights: false
+  group_name: 1mpx
+  project_name: ssms_event_cameras
+dataset:
+  name: gen4
+  path: /leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4
+  train:
+    sampling: mixed
+    random:
+      weighted_sampling: false
+    mixed:
+      w_stream: 1
+      w_random: 1
+  eval:
+    sampling: stream
+  data_augmentation:
+    random:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.8
+        zoom_in:
+          weight: 8
+          factor:
+            min: 1
+            max: 1.5
+        zoom_out:
+          weight: 2
+          factor:
+            min: 1
+            max: 1.2
+    stream:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.5
+        zoom_out:
+          factor:
+            min: 1
+            max: 1.2
+  ev_repr_name: stacked_histogram_dt=50_nbins=10
+  sequence_length: 10
+  resolution_hw:
+  - 720
+  - 1280
+  downsample_by_factor_2: true
+  only_load_end_labels: false
+model:
+  name: rnndet
+  backbone:
+    name: MaxViTRNN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    input_channels: 20
+    enable_masking: false
+    partition_split_32: 2
+    embed_dim: 48
+    dim_multiplier:
+    - 1
+    - 2
+    - 4
+    - 8
+    num_blocks:
+    - 1
+    - 1
+    - 1
+    - 1
+    T_max_chrono_init:
+    - 4
+    - 8
+    - 16
+    - 32
+    stem:
+      patch_size: 4
+    stage:
+      downsample:
+        type: patch
+        overlap: true
+        norm_affine: true
+      attention:
+        use_torch_mha: false
+        partition_size:
+        - 6
+        - 10
+        dim_head: 24
+        attention_bias: true
+        mlp_activation: gelu
+        mlp_gated: false
+        mlp_bias: true
+        mlp_ratio: 4
+        drop_mlp: 0
+        drop_path: 0
+        ls_init_value: 1.0e-05
+      lstm:
+        dws_conv: false
+        dws_conv_only_hidden: true
+        dws_conv_kernel_size: 3
+        drop_cell_update: 0
+      s5:
+        dim: 80
+        state_dim: 80
+      s4:
+        dim: 80
+        state_dim: 80
+    in_res_hw:
+    - 384
+    - 640
+  fpn:
+    name: PAFPN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depth: 0.33
+    in_stages:
+    - 2
+    - 3
+    - 4
+    depthwise: false
+    act: silu
+  head:
+    name: YoloX
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depthwise: false
+    act: silu
+    num_classes: 3
+  postprocess:
+    confidence_threshold: 0.1
+    nms_threshold: 0.45
+slurm_job_id: 18024197
+
+---------------------------
+Disabling PL seed everything because of unresolved issues with shuffling during training on streaming datasets
+new run: generating id 71gtb3c6
+WANDB_MODE env: offline
+WandB run: <wandb.sdk.wandb_run.Run object at 0x14b1465e2a10>
+Offline mode: True
+[Train] Local batch size for:
+stream sampling:	3
+random sampling:	3
+[Train] Local num workers for:
+stream sampling:	1
+random sampling:	2
+Set MaxViTRNN backbone (height, width) to (384, 640)
+Set partition sizes: (6, 10)
+Set num_classes=3 for detection head
+------ Configuration ------
+reproduce:
+  seed_everything: null
+  deterministic_flag: false
+  benchmark: false
+training:
+  precision: 32
+  max_epochs: 10000
+  max_steps: 400001
+  learning_rate: 0.0002449489742783178
+  weight_decay: 0
+  gradient_clip_val: 1.0
+  limit_train_batches: 1.0
+  lr_scheduler:
+    use: true
+    total_steps: ${..max_steps}
+    pct_start: 0.005
+    div_factor: 20
+    final_div_factor: 10000
+validation:
+  limit_val_batches: 1.0
+  val_check_interval: 10000
+  check_val_every_n_epoch: null
+batch_size:
+  train: 6
+  eval: 6
+hardware:
+  num_workers:
+    train: 3
+    eval: 1
+  gpus:
+  - 0
+  - 1
+  - 2
+  - 3
+  dist_backend: nccl
+logging:
+  ckpt_every_n_epochs: 1
+  train:
+    metrics:
+      compute: false
+      detection_metrics_every_n_steps: null
+    log_model_every_n_steps: 5000
+    log_every_n_steps: 500
+    high_dim:
+      enable: true
+      every_n_steps: 5000
+      n_samples: 4
+  validation:
+    high_dim:
+      enable: false
+      every_n_epochs: 1
+      n_samples: 8
+wandb:
+  wandb_runpath: null
+  artifact_name: null
+  artifact_local_file: null
+  resume_only_weights: false
+  group_name: 1mpx
+  project_name: ssms_event_cameras
+dataset:
+  name: gen4
+  path: /leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4
+  train:
+    sampling: mixed
+    random:
+      weighted_sampling: false
+    mixed:
+      w_stream: 1
+      w_random: 1
+  eval:
+    sampling: stream
+  data_augmentation:
+    random:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.8
+        zoom_in:
+          weight: 8
+          factor:
+            min: 1
+            max: 1.5
+        zoom_out:
+          weight: 2
+          factor:
+            min: 1
+            max: 1.2
+    stream:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.5
+        zoom_out:
+          factor:
+            min: 1
+            max: 1.2
+  ev_repr_name: stacked_histogram_dt=50_nbins=10
+  sequence_length: 10
+  resolution_hw:
+  - 720
+  - 1280
+  downsample_by_factor_2: true
+  only_load_end_labels: false
+model:
+  name: rnndet
+  backbone:
+    name: MaxViTRNN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    input_channels: 20
+    enable_masking: false
+    partition_split_32: 2
+    embed_dim: 48
+    dim_multiplier:
+    - 1
+    - 2
+    - 4
+    - 8
+    num_blocks:
+    - 1
+    - 1
+    - 1
+    - 1
+    T_max_chrono_init:
+    - 4
+    - 8
+    - 16
+    - 32
+    stem:
+      patch_size: 4
+    stage:
+      downsample:
+        type: patch
+        overlap: true
+        norm_affine: true
+      attention:
+        use_torch_mha: false
+        partition_size:
+        - 6
+        - 10
+        dim_head: 24
+        attention_bias: true
+        mlp_activation: gelu
+        mlp_gated: false
+        mlp_bias: true
+        mlp_ratio: 4
+        drop_mlp: 0
+        drop_path: 0
+        ls_init_value: 1.0e-05
+      lstm:
+        dws_conv: false
+        dws_conv_only_hidden: true
+        dws_conv_kernel_size: 3
+        drop_cell_update: 0
+      s5:
+        dim: 80
+        state_dim: 80
+      s4:
+        dim: 80
+        state_dim: 80
+    in_res_hw:
+    - 384
+    - 640
+  fpn:
+    name: PAFPN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depth: 0.33
+    in_stages:
+    - 2
+    - 3
+    - 4
+    depthwise: false
+    act: silu
+  head:
+    name: YoloX
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depthwise: false
+    act: silu
+    num_classes: 3
+  postprocess:
+    confidence_threshold: 0.1
+    nms_threshold: 0.45
+slurm_job_id: 18024197
+
+---------------------------
+Disabling PL seed everything because of unresolved issues with shuffling during training on streaming datasets
+new run: generating id yfp1pb9o
+WANDB_MODE env: offline
+WandB run: None
+Offline mode: no run
+[Train] Local batch size for:
+stream sampling:	3
+random sampling:	3
+Set MaxViTRNN backbone (height, width) to (384, 640)
+Set partition sizes: (6, 10)
+Set num_classes=3 for detection head
+------ Configuration ------
+reproduce:
+  seed_everything: null
+  deterministic_flag: false
+  benchmark: false
+training:
+  precision: 32
+  max_epochs: 10000
+  max_steps: 400001
+  learning_rate: 0.0002449489742783178
+  weight_decay: 0
+  gradient_clip_val: 1.0
+  limit_train_batches: 1.0
+  lr_scheduler:
+    use: true
+    total_steps: ${..max_steps}
+    pct_start: 0.005
+    div_factor: 20
+    final_div_factor: 10000
+validation:
+  limit_val_batches: 1.0
+  val_check_interval: 10000
+  check_val_every_n_epoch: null
+batch_size:
+  train: 6
+  eval: 6
+hardware:
+  num_workers:
+    train: 3
+    eval: 1
+  gpus:
+  - 0
+  - 1
+  - 2
+  - 3
+  dist_backend: nccl
+logging:
+  ckpt_every_n_epochs: 1
+  train:
+    metrics:
+      compute: false
+      detection_metrics_every_n_steps: null
+    log_model_every_n_steps: 5000
+    log_every_n_steps: 500
+    high_dim:
+      enable: true
+      every_n_steps: 5000
+      n_samples: 4
+  validation:
+    high_dim:
+      enable: false
+      every_n_epochs: 1
+      n_samples: 8
+wandb:
+  wandb_runpath: null
+  artifact_name: null
+  artifact_local_file: null
+  resume_only_weights: false
+  group_name: 1mpx
+  project_name: ssms_event_cameras
+dataset:
+  name: gen4
+  path: /leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4
+  train:
+    sampling: mixed
+    random:
+      weighted_sampling: false
+    mixed:
+      w_stream: 1
+      w_random: 1
+  eval:
+    sampling: stream
+  data_augmentation:
+    random:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.8
+        zoom_in:
+          weight: 8
+          factor:
+            min: 1
+            max: 1.5
+        zoom_out:
+          weight: 2
+          factor:
+            min: 1
+            max: 1.2
+    stream:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.5
+        zoom_out:
+          factor:
+            min: 1
+            max: 1.2
+  ev_repr_name: stacked_histogram_dt=50_nbins=10
+  sequence_length: 10
+  resolution_hw:
+  - 720
+  - 1280
+  downsample_by_factor_2: true
+  only_load_end_labels: false
+model:
+  name: rnndet
+  backbone:
+    name: MaxViTRNN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    input_channels: 20
+    enable_masking: false
+    partition_split_32: 2
+    embed_dim: 48
+    dim_multiplier:
+    - 1
+    - 2
+    - 4
+    - 8
+    num_blocks:
+    - 1
+    - 1
+    - 1
+    - 1
+    T_max_chrono_init:
+    - 4
+    - 8
+    - 16
+    - 32
+    stem:
+      patch_size: 4
+    stage:
+      downsample:
+        type: patch
+        overlap: true
+        norm_affine: true
+      attention:
+        use_torch_mha: false
+        partition_size:
+        - 6
+        - 10
+        dim_head: 24
+        attention_bias: true
+        mlp_activation: gelu
+        mlp_gated: false
+        mlp_bias: true
+        mlp_ratio: 4
+        drop_mlp: 0
+        drop_path: 0
+        ls_init_value: 1.0e-05
+      lstm:
+        dws_conv: false
+        dws_conv_only_hidden: true
+        dws_conv_kernel_size: 3
+        drop_cell_update: 0
+      s5:
+        dim: 80
+        state_dim: 80
+      s4:
+        dim: 80
+        state_dim: 80
+    in_res_hw:
+    - 384
+    - 640
+  fpn:
+    name: PAFPN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depth: 0.33
+    in_stages:
+    - 2
+    - 3
+    - 4
+    depthwise: false
+    act: silu
+  head:
+    name: YoloX
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depthwise: false
+    act: silu
+    num_classes: 3
+  postprocess:
+    confidence_threshold: 0.1
+    nms_threshold: 0.45
+slurm_job_id: 18024197
+
+---------------------------
+Disabling PL seed everything because of unresolved issues with shuffling during training on streaming datasets
+new run: generating id tz9nd66f
+WANDB_MODE env: offline
+WandB run: None
+Offline mode: no run
+[Train] Local batch size for:
+stream sampling:	3
+random sampling:	3
+[Train] Local num workers for:
+stream sampling:	1
+random sampling:	2
+[Train] Local num workers for:
+stream sampling:	1
+random sampling:	2
+Set MaxViTRNN backbone (height, width) to (384, 640)
+Set partition sizes: (6, 10)
+Set num_classes=3 for detection head
+------ Configuration ------
+reproduce:
+  seed_everything: null
+  deterministic_flag: false
+  benchmark: false
+training:
+  precision: 32
+  max_epochs: 10000
+  max_steps: 400001
+  learning_rate: 0.0002449489742783178
+  weight_decay: 0
+  gradient_clip_val: 1.0
+  limit_train_batches: 1.0
+  lr_scheduler:
+    use: true
+    total_steps: ${..max_steps}
+    pct_start: 0.005
+    div_factor: 20
+    final_div_factor: 10000
+validation:
+  limit_val_batches: 1.0
+  val_check_interval: 10000
+  check_val_every_n_epoch: null
+batch_size:
+  train: 6
+  eval: 6
+hardware:
+  num_workers:
+    train: 3
+    eval: 1
+  gpus:
+  - 0
+  - 1
+  - 2
+  - 3
+  dist_backend: nccl
+logging:
+  ckpt_every_n_epochs: 1
+  train:
+    metrics:
+      compute: false
+      detection_metrics_every_n_steps: null
+    log_model_every_n_steps: 5000
+    log_every_n_steps: 500
+    high_dim:
+      enable: true
+      every_n_steps: 5000
+      n_samples: 4
+  validation:
+    high_dim:
+      enable: false
+      every_n_epochs: 1
+      n_samples: 8
+wandb:
+  wandb_runpath: null
+  artifact_name: null
+  artifact_local_file: null
+  resume_only_weights: false
+  group_name: 1mpx
+  project_name: ssms_event_cameras
+dataset:
+  name: gen4
+  path: /leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4
+  train:
+    sampling: mixed
+    random:
+      weighted_sampling: false
+    mixed:
+      w_stream: 1
+      w_random: 1
+  eval:
+    sampling: stream
+  data_augmentation:
+    random:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.8
+        zoom_in:
+          weight: 8
+          factor:
+            min: 1
+            max: 1.5
+        zoom_out:
+          weight: 2
+          factor:
+            min: 1
+            max: 1.2
+    stream:
+      prob_hflip: 0.5
+      rotate:
+        prob: 0
+        min_angle_deg: 2
+        max_angle_deg: 6
+      zoom:
+        prob: 0.5
+        zoom_out:
+          factor:
+            min: 1
+            max: 1.2
+  ev_repr_name: stacked_histogram_dt=50_nbins=10
+  sequence_length: 10
+  resolution_hw:
+  - 720
+  - 1280
+  downsample_by_factor_2: true
+  only_load_end_labels: false
+model:
+  name: rnndet
+  backbone:
+    name: MaxViTRNN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    input_channels: 20
+    enable_masking: false
+    partition_split_32: 2
+    embed_dim: 48
+    dim_multiplier:
+    - 1
+    - 2
+    - 4
+    - 8
+    num_blocks:
+    - 1
+    - 1
+    - 1
+    - 1
+    T_max_chrono_init:
+    - 4
+    - 8
+    - 16
+    - 32
+    stem:
+      patch_size: 4
+    stage:
+      downsample:
+        type: patch
+        overlap: true
+        norm_affine: true
+      attention:
+        use_torch_mha: false
+        partition_size:
+        - 6
+        - 10
+        dim_head: 24
+        attention_bias: true
+        mlp_activation: gelu
+        mlp_gated: false
+        mlp_bias: true
+        mlp_ratio: 4
+        drop_mlp: 0
+        drop_path: 0
+        ls_init_value: 1.0e-05
+      lstm:
+        dws_conv: false
+        dws_conv_only_hidden: true
+        dws_conv_kernel_size: 3
+        drop_cell_update: 0
+      s5:
+        dim: 80
+        state_dim: 80
+      s4:
+        dim: 80
+        state_dim: 80
+    in_res_hw:
+    - 384
+    - 640
+  fpn:
+    name: PAFPN
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depth: 0.33
+    in_stages:
+    - 2
+    - 3
+    - 4
+    depthwise: false
+    act: silu
+  head:
+    name: YoloX
+    compile:
+      enable: false
+      args:
+        mode: reduce-overhead
+    depthwise: false
+    act: silu
+    num_classes: 3
+  postprocess:
+    confidence_threshold: 0.1
+    nms_threshold: 0.45
+slurm_job_id: 18024197
+
+---------------------------
+Disabling PL seed everything because of unresolved issues with shuffling during training on streaming datasets
+new run: generating id ftrehc58
+WANDB_MODE env: offline
+WandB run: None
+Offline mode: no run
+[Train] Local batch size for:
+stream sampling:	3
+random sampling:	3
+[Train] Local num workers for:
+stream sampling:	1
+random sampling:	2
+num_full_sequences=529
+num_splits=152
+num_split_sequences=696
+num_full_sequences=529
+num_splits=152
+num_split_sequences=696
+num_full_sequences=529
+num_splits=152
+num_split_sequences=696
+num_full_sequences=529
+num_splits=152
+num_split_sequences=696
+num_full_sequences=128
+num_splits=0
+num_split_sequences=0
+num_full_sequences=128
+num_splits=0
+num_split_sequences=0
+num_full_sequences=128
+num_splits=0
+num_split_sequences=0
+num_full_sequences=128
+num_splits=0
+num_split_sequences=0
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:02<00:02,  0.47it/s]Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:02<00:00,  0.70it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training: |          | 0/? [00:00<?, ?it/s]Epoch 0: |          | 0/? [00:00<?, ?it/s] Epoch 0: |          | 1/? [00:04<00:00,  0.20it/s]Epoch 0: |          | 1/? [00:04<00:00,  0.20it/s, v_num=b3c6]Epoch 0: |          | 2/? [00:07<00:00,  0.26it/s, v_num=b3c6]Epoch 0: |          | 2/? [00:07<00:00,  0.26it/s, v_num=b3c6]Epoch 0: |          | 3/? [00:10<00:00,  0.29it/s, v_num=b3c6]Epoch 0: |          | 3/? [00:10<00:00,  0.29it/s, v_num=b3c6]Epoch 0: |          | 4/? [00:13<00:00,  0.31it/s, v_num=b3c6]Epoch 0: |          | 4/? [00:13<00:00,  0.31it/s, v_num=b3c6]Epoch 0: |          | 5/? [00:15<00:00,  0.32it/s, v_num=b3c6]Epoch 0: |          | 5/? [00:15<00:00,  0.32it/s, v_num=b3c6]Epoch 0: |          | 6/? [00:18<00:00,  0.32it/s, v_num=b3c6]Epoch 0: |          | 6/? [00:18<00:00,  0.32it/s, v_num=b3c6]Epoch 0: |          | 7/? [00:21<00:00,  0.33it/s, v_num=b3c6]Epoch 0: |          | 7/? [00:21<00:00,  0.33it/s, v_num=b3c6]Epoch 0: |          | 8/? [00:23<00:00,  0.34it/s, v_num=b3c6]Epoch 0: |          | 8/? [00:23<00:00,  0.34it/s, v_num=b3c6]Epoch 0: |          | 9/? [00:26<00:00,  0.34it/s, v_num=b3c6]Epoch 0: |          | 9/? [00:26<00:00,  0.34it/s, v_num=b3c6]Epoch 0: |          | 10/? [00:29<00:00,  0.34it/s, v_num=b3c6]Epoch 0: |          | 10/? [00:29<00:00,  0.34it/s, v_num=b3c6]Epoch 0: |          | 11/? [00:31<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 11/? [00:31<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 12/? [00:34<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 12/? [00:34<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 13/? [00:36<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 13/? [00:36<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 14/? [00:39<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 14/? [00:39<00:00,  0.35it/s, v_num=b3c6]Epoch 0: |          | 15/? [00:42<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 15/? [00:42<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 16/? [00:44<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 16/? [00:44<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 17/? [00:47<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 17/? [00:47<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 18/? [00:50<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 18/? [00:50<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 19/? [00:52<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 19/? [00:52<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 20/? [00:55<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 20/? [00:55<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 21/? [00:57<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 21/? [00:57<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 22/? [01:00<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 22/? [01:00<00:00,  0.36it/s, v_num=b3c6]Epoch 0: |          | 23/? [01:02<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 23/? [01:02<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 24/? [01:05<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 24/? [01:05<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 25/? [01:07<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 25/? [01:07<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 26/? [01:10<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 26/? [01:10<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 27/? [01:13<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 27/? [01:13<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 28/? [01:15<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 28/? [01:15<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 29/? [01:18<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 29/? [01:18<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 30/? [01:21<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 30/? [01:21<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 31/? [01:23<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 31/? [01:23<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 32/? [01:26<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 32/? [01:26<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 33/? [01:28<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 33/? [01:28<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 34/? [01:31<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 34/? [01:31<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 35/? [01:33<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 35/? [01:33<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 36/? [01:36<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 36/? [01:36<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 37/? [01:39<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 37/? [01:39<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 38/? [01:41<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 38/? [01:41<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 39/? [01:44<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 39/? [01:44<00:00,  0.37it/s, v_num=b3c6]Epoch 0: |          | 40/? [01:46<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 40/? [01:46<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 41/? [01:49<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 41/? [01:49<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 42/? [01:51<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 42/? [01:51<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 43/? [01:54<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 43/? [01:54<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 44/? [01:56<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 44/? [01:56<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 45/? [01:59<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 45/? [01:59<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 46/? [02:01<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 46/? [02:01<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 47/? [02:04<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 47/? [02:04<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 48/? [02:07<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 48/? [02:07<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 49/? [02:09<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 49/? [02:09<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 50/? [02:12<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 50/? [02:12<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 51/? [02:14<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 51/? [02:14<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 52/? [02:17<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 52/? [02:17<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 53/? [02:19<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 53/? [02:19<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 54/? [02:22<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 54/? [02:22<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 55/? [02:24<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 55/? [02:24<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 56/? [02:27<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 56/? [02:27<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 57/? [02:29<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 57/? [02:29<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 58/? [02:32<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 58/? [02:32<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 59/? [02:34<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 59/? [02:34<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 60/? [02:37<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 60/? [02:37<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 61/? [02:40<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 61/? [02:40<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 62/? [02:42<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 62/? [02:42<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 63/? [02:45<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 63/? [02:45<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 64/? [02:47<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 64/? [02:47<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 65/? [02:50<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 65/? [02:50<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 66/? [02:52<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 66/? [02:52<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 67/? [02:55<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 67/? [02:55<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 68/? [02:57<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 68/? [02:57<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 69/? [03:00<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 69/? [03:00<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 70/? [03:02<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 70/? [03:02<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 71/? [03:05<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 71/? [03:05<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 72/? [03:07<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 72/? [03:07<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 73/? [03:10<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 73/? [03:10<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 74/? [03:13<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 74/? [03:13<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 75/? [03:15<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 75/? [03:15<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 76/? [03:18<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 76/? [03:18<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 77/? [03:20<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 77/? [03:20<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 78/? [03:23<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 78/? [03:23<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 79/? [03:25<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 79/? [03:25<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 80/? [03:28<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 80/? [03:28<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 81/? [03:30<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 81/? [03:30<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 82/? [03:33<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 82/? [03:33<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 83/? [03:35<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 83/? [03:35<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 84/? [03:38<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 84/? [03:38<00:00,  0.38it/s, v_num=b3c6]Epoch 0: |          | 85/? [03:40<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 85/? [03:40<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 86/? [03:43<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 86/? [03:43<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 87/? [03:45<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 87/? [03:45<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 88/? [03:48<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 88/? [03:48<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 89/? [03:50<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 89/? [03:50<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 90/? [03:53<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 90/? [03:53<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 91/? [03:55<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 91/? [03:55<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 92/? [03:58<00:00,  0.39it/s, v_num=b3c6]Epoch 0: |          | 92/? [03:58<00:00,

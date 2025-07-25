@@ -1,0 +1,66 @@
+Error executing job with overrides: ['model=rnndet', 'dataset=gen4', 'dataset.path=/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4', 'wandb.project_name=ssms_event_cameras', 'wandb.group_name=1mpx', '+experiment/gen4=base.yaml', 'hardware.gpus=[0,1,2,3]', 'batch_size.train=6', 'batch_size.eval=6', 'hardware.num_workers.train=3', 'hardware.num_workers.eval=1']
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/train.py", line 149, in main
+    trainer = pl.Trainer(
+              ^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 404, in __init__
+    self._accelerator_connector = _AcceleratorConnector(
+                                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/accelerator_connector.py", line 147, in __init__
+    self._set_parallel_devices_and_init_accelerator()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/accelerator_connector.py", line 377, in _set_parallel_devices_and_init_accelerator
+    self._devices_flag = accelerator_cls.parse_devices(self._devices_flag)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/accelerators/cuda.py", line 88, in parse_devices
+    return _parse_gpu_ids(devices, include_cuda=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/fabric/utilities/device_parser.py", line 103, in _parse_gpu_ids
+    return _sanitize_gpu_ids(gpus, include_cuda=include_cuda, include_mps=include_mps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/fabric/utilities/device_parser.py", line 136, in _sanitize_gpu_ids
+    raise MisconfigurationException(
+lightning.fabric.utilities.exceptions.MisconfigurationException: You requested gpu: [0, 1, 2, 3]
+ But your machine only has: [0, 1]
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id mvnjk813.
+srun: error: lrdn3411: task 1: Exited with exit code 1
+wandb: Tracking run with wandb version 0.16.6
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: logging graph, to disable use `wandb.watch(log_graph=False)`
+Error executing job with overrides: ['model=rnndet', 'dataset=gen4', 'dataset.path=/leonardo_scratch/fast/IscrB_FM-EEG24/ychen004/gen4', 'wandb.project_name=ssms_event_cameras', 'wandb.group_name=1mpx', '+experiment/gen4=base.yaml', 'hardware.gpus=[0,1,2,3]', 'batch_size.train=6', 'batch_size.eval=6', 'hardware.num_workers.train=3', 'hardware.num_workers.eval=1']
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/ychen004/ssm-event-gen4/RVT/train.py", line 149, in main
+    trainer = pl.Trainer(
+              ^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/trainer.py", line 404, in __init__
+    self._accelerator_connector = _AcceleratorConnector(
+                                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/accelerator_connector.py", line 147, in __init__
+    self._set_parallel_devices_and_init_accelerator()
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/accelerator_connector.py", line 377, in _set_parallel_devices_and_init_accelerator
+    self._devices_flag = accelerator_cls.parse_devices(self._devices_flag)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/pytorch/accelerators/cuda.py", line 88, in parse_devices
+    return _parse_gpu_ids(devices, include_cuda=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/fabric/utilities/device_parser.py", line 103, in _parse_gpu_ids
+    return _sanitize_gpu_ids(gpus, include_cuda=include_cuda, include_mps=include_mps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/leonardo/home/userexternal/ychen004/anaconda3/envs/events_signals/lib/python3.11/site-packages/lightning/fabric/utilities/device_parser.py", line 136, in _sanitize_gpu_ids
+    raise MisconfigurationException(
+lightning.fabric.utilities.exceptions.MisconfigurationException: You requested gpu: [0, 1, 2, 3]
+ But your machine only has: [0, 1]
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /leonardo/home/userexternal/ychen004/ssms-event-cameras/wandb/offline-run-20250725_233921-mvnjk813
+wandb: Find logs at: ./wandb/offline-run-20250725_233921-mvnjk813/logs
+srun: error: lrdn3411: task 0: Exited with exit code 1
